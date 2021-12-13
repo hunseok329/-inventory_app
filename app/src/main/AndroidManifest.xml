@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.testap">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA"></uses-permission> <!--카메라 권한-->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>    <!--저장소 읽기 권한-->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>    <!--저장소 쓰기 권한-->
+    <uses-feature android:name="android.hardware.camera" android:required="true"/><!--카메라 기능 사용-->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,9 +23,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".PhotoActivity"/>
+        <activity android:name=".ImageProcess" />
+        <activity android:name=".InventoryAddActivity" />
+        <activity android:name=".PhotoOCRActivity" />
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.lakue.testap"
+            android:authorities="com.example.testap"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
